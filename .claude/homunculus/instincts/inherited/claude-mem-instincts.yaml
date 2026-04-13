@@ -1,0 +1,714 @@
+# Instincts generated from https://github.com/moesaleh/claude-mem
+# Generated: 2026-04-01T15:11:29.433Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: claude-mem-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, chore, docs, feat, maestro
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs: update CHANGELOG.md for v10.6.3, chore: bump version to 10.6.3
+
+---
+id: claude-mem-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Commit Length
+
+## Action
+
+Write moderate-length commit messages (~56 characters)
+
+## Evidence
+
+- Average commit message length: 56 chars
+- Based on 200 commits
+
+---
+id: claude-mem-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: claude-mem-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: claude-mem-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: claude-mem-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: bin, cli, hooks, sdk, servers
+
+---
+id: claude-mem-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: claude-mem-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: claude-mem-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: claude-mem-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: yes
+
+---
+id: claude-mem-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: src/sdk/*, tests/*, src/services/worker/*
+
+---
+id: claude-mem-workflow-test-driven-development
+trigger: "when adding new functionality"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Test Driven Development
+
+## Action
+
+Follow the test-driven-development workflow:
+1. Write failing test
+2. Implement code to pass test
+3. Refactor if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: **/*.test.*, **/*.spec.*, src/**/*
+
+---
+id: claude-mem-workflow-release-version-bump
+trigger: "when doing release version bump"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Release Version Bump
+
+## Action
+
+Follow the release-version-bump workflow:
+1. Update version numbers in package.json and plugin/package.json
+2. Update .claude-plugin/marketplace.json and plugin/.claude-plugin/plugin.json
+3. Rebuild plugin/scripts/mcp-server.cjs and plugin/scripts/worker-service.cjs
+4. Optionally update plugin/ui/viewer-bundle.js
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: .claude-plugin/marketplace.json, package.json, plugin/.claude-plugin/plugin.json
+
+---
+id: claude-mem-workflow-update-changelog-for-release
+trigger: "when doing update changelog for release"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Update Changelog For Release
+
+## Action
+
+Follow the update-changelog-for-release workflow:
+1. Edit CHANGELOG.md to add a new section for the release version
+2. Summarize notable changes, bugfixes, and features
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: CHANGELOG.md
+
+---
+id: claude-mem-workflow-feature-or-bugfix-with-bundle-rebuild
+trigger: "when doing feature or bugfix with bundle rebuild"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Feature Or Bugfix With Bundle Rebuild
+
+## Action
+
+Follow the feature-or-bugfix-with-bundle-rebuild workflow:
+1. Edit or add implementation files in src/ or plugin/scripts/
+2. Update or add tests in tests/
+3. Rebuild plugin/scripts/mcp-server.cjs and/or plugin/scripts/worker-service.cjs
+4. Optionally rebuild plugin/ui/viewer-bundle.js
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/**/*.ts, plugin/scripts/mcp-server.cjs, plugin/scripts/worker-service.cjs
+
+---
+id: claude-mem-workflow-add-or-update-tests-for-bugfix-or-feature
+trigger: "when doing add or update tests for bugfix or feature"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Add Or Update Tests For Bugfix Or Feature
+
+## Action
+
+Follow the add-or-update-tests-for-bugfix-or-feature workflow:
+1. Edit or add implementation files in src/ or plugin/scripts/
+2. Create or update corresponding test files in tests/
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/**/*.ts, plugin/scripts/**/*.js, tests/**/*.test.ts
+
+---
+id: claude-mem-workflow-readme-or-documentation-update
+trigger: "when doing readme or documentation update"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/moesaleh/claude-mem
+---
+
+# Claude Mem Workflow Readme Or Documentation Update
+
+## Action
+
+Follow the readme-or-documentation-update workflow:
+1. Edit README.md or docs/public/*.mdx to reflect new information
+2. Commit documentation changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: README.md, docs/public/*.mdx
+
+---
+id: claude-mem-instinct-file-naming-camelCase
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct File Naming CamelCase
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Observed in src/cli/cliRunner.ts
+
+---
+id: claude-mem-instinct-function-naming-camelCase
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Function Naming CamelCase
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Observed in src/sdk/parser.ts
+
+---
+id: claude-mem-instinct-class-naming-PascalCase
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Class Naming PascalCase
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes
+- Observed in src/shared/SettingsDefaultsManager.ts
+
+---
+id: claude-mem-instinct-constant-naming-SCREAMING_SNAKE_CASE
+trigger: "When defining a constant"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Constant Naming SCREAMING_SNAKE_CASE
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants
+- Observed in src/shared/SettingsDefaultsManager.ts
+
+---
+id: claude-mem-instinct-import-style-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Import Style Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+- Observed in src/sdk/prompts.ts
+
+---
+id: claude-mem-instinct-export-style-named
+trigger: "When exporting modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Export Style Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+- Observed in src/sdk/parser.ts
+
+---
+id: claude-mem-instinct-testing-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Testing File Pattern
+
+## Action
+
+Name the file with a .test.ts suffix
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Seen in src/utils/validation.test.ts
+
+---
+id: claude-mem-instinct-testing-framework-jest
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Testing Framework Jest
+
+## Action
+
+Use Jest as the testing framework
+
+## Evidence
+
+- Pattern in testing.framework
+- Seen in jest.config.js
+
+---
+id: claude-mem-instinct-testing-types
+trigger: "When planning test coverage"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Testing Types
+
+## Action
+
+Write unit, integration, and e2e tests as appropriate
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Seen in tests/unit/example.test.ts
+
+---
+id: claude-mem-instinct-testing-coverage-config
+trigger: "When configuring tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Testing Coverage Config
+
+## Action
+
+Ensure code coverage is configured and measured
+
+## Evidence
+
+- Pattern in testing.coverageConfig
+- Presence of jest.config.js with coverage
+
+---
+id: claude-mem-instinct-git-commit-conventional
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Git Commit Conventional
+
+## Action
+
+Use conventional commit prefixes (fix, feat, chore, docs, maestro) followed by a colon and a brief message
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commit 'fix: remove import.meta.url banner from CJS files run by Node.js'
+
+---
+id: claude-mem-instinct-git-commit-length
+trigger: "When composing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 56 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Seen in commit examples
+
+---
+id: claude-mem-instinct-workflow-release-version-bump
+trigger: "When preparing a new release version"
+confidence: 0.99
+domain: workflow
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Workflow Release Version Bump
+
+## Action
+
+Update all relevant version numbers and rebuild plugin bundles
+
+## Evidence
+
+- Workflow: release-version-bump
+- Seen in commits updating package.json and plugin scripts
+
+---
+id: claude-mem-instinct-workflow-update-changelog
+trigger: "When a new version is released or about to be released"
+confidence: 0.99
+domain: workflow
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Workflow Update Changelog
+
+## Action
+
+Edit CHANGELOG.md to add a new section summarizing changes
+
+## Evidence
+
+- Workflow: update-changelog-for-release
+- Seen in commit 'docs: update CHANGELOG.md for v10.6.3'
+
+---
+id: claude-mem-instinct-workflow-feature-bundle-rebuild
+trigger: "When a code change in src/ or plugin/scripts/ requires updated runtime bundles"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Workflow Feature Bundle Rebuild
+
+## Action
+
+Rebuild plugin/scripts/mcp-server.cjs and/or plugin/scripts/worker-service.cjs after code changes
+
+## Evidence
+
+- Workflow: feature-or-bugfix-with-bundle-rebuild
+- Seen in commits editing src/ and rebuilding plugin scripts
+
+---
+id: claude-mem-instinct-workflow-add-update-tests
+trigger: "When a new feature is added or a bug is fixed"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Workflow Add Update Tests
+
+## Action
+
+Create or update corresponding test files in tests/
+
+## Evidence
+
+- Workflow: add-or-update-tests-for-bugfix-or-feature
+- Seen in commit 'test: add tests for user validation'
+
+---
+id: claude-mem-instinct-workflow-update-docs
+trigger: "When documentation or project information needs to be updated"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: moesaleh/claude-mem
+---
+
+# Claude Mem Instinct Workflow Update Docs
+
+## Action
+
+Edit README.md or docs/public/*.mdx and commit documentation changes
+
+## Evidence
+
+- Workflow: readme-or-documentation-update
+- Seen in commit 'docs: update CHANGELOG.md for v10.6.3' and README.md edits
+

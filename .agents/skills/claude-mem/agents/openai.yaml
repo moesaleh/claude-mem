@@ -1,0 +1,6 @@
+interface:
+  display_name: "Claude Mem"
+  short_description: "Repo-specific patterns and workflows for claude-mem"
+  default_prompt: "Use the claude-mem repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
